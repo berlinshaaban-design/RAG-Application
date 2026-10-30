@@ -1,3 +1,5 @@
+![Eiffel Tower in Paris](https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1600&q=85)
+
 # Paris Travel Assistant - RAG Project
 
 ## Topic
