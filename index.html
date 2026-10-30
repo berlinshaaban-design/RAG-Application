@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paris Travel Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <div class="floating-icons">
+        <span>✨</span>
+        <span>🗼</span>
+        <span>💫</span>
+        <span>🇫🇷</span>
+        <span>☁️</span>
+    </div>
+
+    <main class="page">
+        <section class="hero-card">
+            <div class="left-side">
+                <div class="badge">AI Travel Guide</div>
+                <h1>Paris Travel Assistant</h1>
+                <p class="subtitle">
+                    Discover the beauty of Paris with an elegant AI assistant.
+                    Ask about attractions, food, neighborhoods, transportation, and more.
+                </p>
+
+                <form method="POST" class="question-form">
+                    <textarea
+                        name="question"
+                        placeholder="Ask me something like: What are the top attractions in Paris?"
+                    >{{ question }}</textarea>
+
+                    <button type="submit">Ask Paris AI</button>
+                </form>
+
+                {% if error %}
+                <div class="answer-box">
+                    <h2>Error</h2>
+                    <p>{{ error }}</p>
+                </div>
+                {% endif %}
+
+                {% if answer %}
+                <div class="answer-box">
+                    <h2>Answer</h2>
+                    <p>{{ answer }}</p>
+
+                    {% if citations %}
+                    <h3>Sources</h3>
+                    <ul>
+                        {% for c in citations %}
+                        <li>{{ c }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+
+            <div class="right-side">
+                <div class="image-card">
+                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=900&q=80" alt="Paris">
+                    <div class="image-glow"></div>
+                </div>
+
+                <div class="mini-info">
+                    <div class="mini-box">
+                        <h3>Top Theme</h3>
+                        <p>Romantic Paris vibes</p>
+                    </div>
+                    <div class="mini-box">
+                        <h3>Best For</h3>
+                        <p>Attractions, food, travel tips</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
